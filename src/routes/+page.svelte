@@ -1,2 +1,41 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+
+export let data = [];
+
+
+
+
+console.log(data);
+
+const linksArray = data.links;
+console.log(linksArray);
+
+
+data.links.forEach((link) => {
+  console.log(link.address);
+});
+
+
+</script>
+
+
+<h1>Laba</h1>
+<p>The bookmark manager</p>
+
+<ul>
+{#each data.links as bookmark}
+	 <!-- content here -->
+	 <li><a href="{bookmark.address}" target=”_blank”>{bookmark.name}</a></li>
+{/each}
+</ul>
+
+
+<p>Add a new bookmark</p>
+<form method="POST">
+	<label for="name">Name</label>
+	<input type="text" id="name" name="name">
+	<label for="address">Address</label>
+	<input type="text" id="address" name="address">
+	<button type="submit">Add</button>
+</form>
+
