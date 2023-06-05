@@ -42,6 +42,16 @@ export const actions = {
 			"address": address
 		};
 		const record = await pb.collection('bookmarks').create(dbdata);
+	},
+
+    delete: async ( {request} ) => {
+        // TODO log the user in
+		const data = await request.formData();
+
+		console.log(data);
+		const id = data.get("id");
+		console.log(id);
+		await pb.collection('bookmarks').delete(id);
 	}
 };
 

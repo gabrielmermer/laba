@@ -26,8 +26,11 @@ data.links.forEach((link) => {
 
 <ul>
 {#each data.links as bookmark}
-	 <!-- content here -->
-	 <li><a href="{bookmark.address}" target=”_blank”>{bookmark.name} {bookmark.id}</a></li>
+	<form method="POST" action="?/delete">
+		<input type="hidden" name="id" value={bookmark.id} />
+		<li><a href="{bookmark.address}" target=”_blank”>{bookmark.name}</a></li>
+		<button>X</button>
+	</form>
 {/each}
 </ul>
 
