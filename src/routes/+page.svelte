@@ -5,15 +5,17 @@ export let data = [];
 
 
 
-console.log(data);
+//console.log(data);
 
 const linksArray = data.links;
-console.log(linksArray);
+//console.log(linksArray);
 
 
 data.links.forEach((link) => {
-  console.log(link.address);
+  //console.log(link.address);
 });
+
+
 
 
 </script>
@@ -25,13 +27,13 @@ data.links.forEach((link) => {
 <ul>
 {#each data.links as bookmark}
 	 <!-- content here -->
-	 <li><a href="{bookmark.address}" target=”_blank”>{bookmark.name}</a></li>
+	 <li><a href="{bookmark.address}" target=”_blank”>{bookmark.name} {bookmark.id}</a></li>
 {/each}
 </ul>
 
 
 <p>Add a new bookmark</p>
-<form method="POST">
+<form method="POST" action="?/add">
 	<label for="name">Name</label>
 	<input type="text" id="name" name="name">
 	<label for="address">Address</label>

@@ -15,7 +15,8 @@ export async function load() {
 	return {
 		links: records.map((record) => ({
 			address: record.address,
-			name: record.name
+			name: record.name,
+			id: record.id
 			// Other properties you want to include
 		})),
 	};
@@ -23,4 +24,24 @@ export async function load() {
 	
 
 }
+
+// POST methods
+export const actions = {
+	// the default post method
+    add: async ( {request} ) => {
+        // TODO log the user in
+		const data = await request.formData();
+
+		console.log(data);
+		const name = data.get("name");
+		console.log(name);
+		const address = data.get("address");
+		console.log(address);
+		const dbdata = {
+			"name": name,
+			"address": address
+		};
+		const record = await pb.collection('bookmarks').create(dbdata);
+	}
+};
 
