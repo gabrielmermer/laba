@@ -39,7 +39,7 @@ export const actions = {
 		console.log(address);
 		const dbdata = {
 			"name": name,
-			"address": address
+			"address": "https://" + address 
 		};
 		const record = await pb.collection('bookmarks').create(dbdata);
 	},
