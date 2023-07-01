@@ -26,6 +26,7 @@
 	"type": "module",
 	"dependencies": {
 		"font-awesome": "^4.7.0",
-		"pocketbase": "^0.15.1"
+		"pocketbase": "^0.15.1",
+		"three": "^0.153.0"
 	}
 }
